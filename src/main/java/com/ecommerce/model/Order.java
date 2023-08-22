@@ -12,9 +12,11 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
+@Table(name = "orders")
 public class Order {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="order_id")
@@ -23,10 +25,11 @@ public class Order {
     @ManyToOne
     private User user;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem>orderItems=new ArrayList<>();
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime orderDate;
+
     private LocalDateTime deliveryDate;
 
     @OneToOne
@@ -36,10 +39,15 @@ public class Order {
     private PaymentDetails paymentDetails=new PaymentDetails();
 
     private double totalPrice;
-    private Integer totalDiscountedprice;
+
+    private Integer totalDiscountedPrice;
+
     private Integer discount;
+
     private String orderStatus;
+
     private int totalItem;
-    private LocalDateTime createAt;
+
+    private LocalDateTime createdAt;
 
 }
