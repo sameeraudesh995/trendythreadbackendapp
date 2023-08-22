@@ -15,7 +15,7 @@ public class OrderServiceImplementation implements OrderService{
     @Autowired
     private CartRepository cartRepository;
     @Autowired
-    private CartItemService cartItemService;
+    private CartService cartService;
     @Autowired
     private ProductService productService;
 
