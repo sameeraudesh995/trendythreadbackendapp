@@ -1,5 +1,4 @@
 package com.ecommerce.model;
-
 import lombok.*;
 
 @NoArgsConstructor
@@ -7,6 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
+
 public class PaymentDetails {
     private String paymentMethod;
     private String status;
