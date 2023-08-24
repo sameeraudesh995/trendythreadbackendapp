@@ -28,6 +28,7 @@ public class ProductServiceImplementation implements ProductService{
 
     @Autowired
     private CategoryRepository categoryRepository;
+
     @Override
     public Product createProduct(CreateProductRequest req) {
         Category topLevel=categoryRepository.findByName(req.getTopLevelCategory());
@@ -108,7 +109,19 @@ public class ProductServiceImplementation implements ProductService{
 
     @Override
     public List<Product> findProductByCategory(String category) {
-        return null;
+
+        System.out.println("category --- "+category);
+
+        List<Product> products = productRepository.findByCategory(category);
+
+        return products;
+
+    }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+
     }
 
     @Override
