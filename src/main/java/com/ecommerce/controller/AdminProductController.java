@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("\"/api/admin/products\"")
+@RequestMapping("/api/admin/products")
 public class AdminProductController {
     @Autowired
     private ProductService productService;
@@ -25,7 +25,7 @@ public class AdminProductController {
         return new ResponseEntity<Product>(createProduct, HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping("/productId}/delete")
+    @DeleteMapping("/{productId}/delete")
     public ResponseEntity<ApiResponse> deleteProductHandler(@PathVariable Long productId) throws ProductException{
         System.out.println("dlete product controller .... ");
         String msg=productService.deleteProduct(productId);
