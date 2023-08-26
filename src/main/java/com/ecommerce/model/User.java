@@ -30,9 +30,10 @@ public class User {
     private List<Address> addresses = new ArrayList<>();
 
 
+    @Embedded
     @ElementCollection
-    @CollectionTable(name = "payment_information", joinColumns = @JoinColumn(name = "user_id"))
-    private List<PaymentInformation> paymentInformations=new ArrayList<>();
+    @CollectionTable(name="payment_information",joinColumns = @JoinColumn(name="user_id"))
+    private List<PaymentInformation> paymentInformation=new ArrayList<>();
 
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)

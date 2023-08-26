@@ -32,4 +32,16 @@ public class CartItem {
 
     private Long userId;
 
+    public CartItem(Long id, Cart cart, Product product, String size, int quantity, Integer price, Long userId) {
+        super();
+        this.id = id;
+        this.cart = cart;
+        this.product = product;
+        this.size = size;
+        this.quantity = quantity;
+        this.price = price;
+        this.userId = userId;
+    }
+
+
 }

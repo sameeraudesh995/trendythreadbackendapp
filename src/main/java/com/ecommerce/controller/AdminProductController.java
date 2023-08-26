@@ -16,13 +16,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/admin/products")
 public class AdminProductController {
-    @Autowired
     private ProductService productService;
 
+    public AdminProductController(ProductService productService) {
+        this.productService = productService;
+    }
     @PostMapping("/")
-    public ResponseEntity<Product> createProductHandler(@RequestBody CreateProductRequest createProductRequest) throws ProductException{
-        Product createProduct = productService.createProduct(createProductRequest);
-        return new ResponseEntity<Product>(createProduct, HttpStatus.ACCEPTED);
+    public ResponseEntity<Product> createProductHandler(@RequestBody CreateProductRequest req) throws ProductException{
+        Product createdProduct = productService.createProduct(req);
+        return new ResponseEntity<Product>(createdProduct, HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{productId}/delete")

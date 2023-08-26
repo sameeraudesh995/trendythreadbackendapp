@@ -6,7 +6,7 @@ import com.ecommerce.model.Cart;
 import com.ecommerce.model.CartItem;
 import com.ecommerce.model.Product;
 import com.ecommerce.model.User;
-import com.ecommerce.re.CartRepository;
+import com.ecommerce.repository.CartRepository;
 import com.ecommerce.repository.CartItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

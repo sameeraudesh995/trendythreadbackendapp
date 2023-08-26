@@ -4,10 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -44,7 +41,7 @@ public class Product {
     @Column(name = "color")
     private String color;
 
-
+    @Embedded
     @ElementCollection
     @Column(name = "sizes")
     private Set<Size> sizes=new HashSet<>();
@@ -67,4 +64,24 @@ public class Product {
     private Category category;
 
     private LocalDateTime createdAt;
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Product other = (Product) obj;
+        return Objects.equals(brand, other.brand) && Objects.equals(category, other.category)
+                && Objects.equals(color, other.color) && Objects.equals(description, other.description)
+                && discountPersent == other.discountPersent && discountedPrice == other.discountedPrice
+                && Objects.equals(id, other.id) && Objects.equals(imageUrl, other.imageUrl)
+                && numRatings == other.numRatings && price == other.price && quantity == other.quantity
+                && Objects.equals(ratings, other.ratings) && Objects.equals(reviews, other.reviews)
+                && Objects.equals(sizes, other.sizes) && Objects.equals(title, other.title);
+    }
+
 }

@@ -31,36 +31,41 @@ public class ProductServiceImplementation implements ProductService{
 
     @Override
     public Product createProduct(CreateProductRequest req) {
-        Category topLevel=categoryRepository.findByName(req.getTopLevelCategory());
-        if(topLevel==null){
-            Category topLevelCategory=new Category();
-            topLevelCategory.setName(req.getTopLevelCategory());
-            topLevelCategory.setLevel(1);
+        Category topLevel=categoryRepository.findByName(req.getTopLavelCategory());
 
-            topLevel=categoryRepository.save(topLevelCategory);
+        if(topLevel==null) {
+
+            Category topLavelCategory=new Category();
+            topLavelCategory.setName(req.getTopLavelCategory());
+            topLavelCategory.setLevel(1);
+
+            topLevel= categoryRepository.save(topLavelCategory);
         }
+
         Category secondLevel=categoryRepository.
-                findByNameAndParent(req.getSecondLevelCategory(),topLevel.getName());
+                findByNameAndParent(req.getSecondLavelCategory(),topLevel.getName());
         if(secondLevel==null) {
 
             Category secondLavelCategory=new Category();
-            secondLavelCategory.setName(req.getSecondLevelCategory());
+            secondLavelCategory.setName(req.getSecondLavelCategory());
             secondLavelCategory.setParentCategory(topLevel);
             secondLavelCategory.setLevel(2);
 
             secondLevel= categoryRepository.save(secondLavelCategory);
         }
 
-        Category thirdLevel=categoryRepository.findByNameAndParent(req.getThirdLevelCategory(),secondLevel.getName());
+        Category thirdLevel=categoryRepository.findByNameAndParent(req.getThirdLavelCategory(),secondLevel.getName());
         if(thirdLevel==null) {
 
-            Category thirdLevelCategory=new Category();
-            thirdLevelCategory.setName(req.getThirdLevelCategory());
-            thirdLevelCategory.setParentCategory(secondLevel);
-            thirdLevelCategory.setLevel(3);
+            Category thirdLavelCategory=new Category();
+            thirdLavelCategory.setName(req.getThirdLavelCategory());
+            thirdLavelCategory.setParentCategory(secondLevel);
+            thirdLavelCategory.setLevel(3);
 
-            thirdLevel=categoryRepository.save(thirdLevelCategory);
+            thirdLevel=categoryRepository.save(thirdLavelCategory);
         }
+
+
         Product product=new Product();
         product.setTitle(req.getTitle());
         product.setColor(req.getColor());
@@ -75,7 +80,9 @@ public class ProductServiceImplementation implements ProductService{
         product.setCategory(thirdLevel);
         product.setCreatedAt(LocalDateTime.now());
 
-        Product savedProduct=productRepository.save(product);
+        Product savedProduct= productRepository.save(product);
+
+        System.out.println("products - "+product);
 
         return savedProduct;
     }

@@ -28,11 +28,14 @@ public class UserServiceImplementation implements UserService{
 
     @Override
     public User findUserProfileByJwt(String jwt) throws UserException {
+        System.out.println("user service");
         String email=jwtTokenProvider.getEmailFromToken(jwt);
+        System.out.println("email"+email);
         User user=userRepository.findByEmail(email);
         if(user==null){
-            throw new UserException("user not found with eamil "+email);
+            throw new UserException("user not found with email "+email);
         }
+        System.out.println("email user"+user.getEmail());
         return user;
     }
 }

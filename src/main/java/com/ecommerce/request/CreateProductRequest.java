@@ -5,9 +5,6 @@ import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
-
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -23,9 +20,9 @@ public class CreateProductRequest {
     private String color;
     private Set<Size> size=new HashSet<>();
     private String imageUrl;
-    private String topLevelCategory;
-    private String secondLevelCategory;
-    private String thirdLevelCategory;
+    private String topLavelCategory;
+    private String secondLavelCategory;
+    private String thirdLavelCategory;
 
 
 

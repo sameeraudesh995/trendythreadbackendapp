@@ -4,7 +4,7 @@ import com.ecommerce.exception.OrderException;
 import com.ecommerce.model.Address;
 import com.ecommerce.model.Order;
 import com.ecommerce.model.User;
-import com.ecommerce.re.CartRepository;
+import com.ecommerce.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
