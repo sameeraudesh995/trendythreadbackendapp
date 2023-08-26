@@ -36,13 +36,13 @@ public class JwtTokenProvider {
         return email;
     }
 
-//    public String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
-//        Set<String> auths=new HashSet<>();
-//
-//        for(GrantedAuthority authority:collection) {
-//            auths.add(authority.getAuthority());
-//        }
-//        return String.join(",",auths);
-//    }
+    public String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
+        Set<String> auths=new HashSet<>();
+
+        for(GrantedAuthority authority:collection) {
+            auths.add(authority.getAuthority());
+        }
+        return String.join(",",auths);
+    }
 
 }
