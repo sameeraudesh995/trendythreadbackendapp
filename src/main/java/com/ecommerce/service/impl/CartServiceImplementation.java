@@ -1,4 +1,4 @@
-package com.ecommerce.service;
+package com.ecommerce.service.impl;
 
 import com.ecommerce.exception.ProductException;
 import com.ecommerce.model.Cart;
@@ -8,11 +8,15 @@ import com.ecommerce.model.User;
 import com.ecommerce.repository.CartRepository;
 import com.ecommerce.repository.CartItemRepository;
 import com.ecommerce.request.AddItemRequest;
+import com.ecommerce.service.CartItemService;
+import com.ecommerce.service.CartService;
+import com.ecommerce.service.ProductService;
+import com.ecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CartServiceImplementation implements CartService{
+public class CartServiceImplementation implements CartService {
     @Autowired
     private CartRepository cartRepository;
     @Autowired

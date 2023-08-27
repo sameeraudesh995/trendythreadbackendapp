@@ -1,4 +1,4 @@
-package com.ecommerce.service;
+package com.ecommerce.service.impl;
 
 import com.ecommerce.exception.ProductException;
 import com.ecommerce.model.Category;
@@ -6,6 +6,8 @@ import com.ecommerce.model.Product;
 import com.ecommerce.repository.CategoryRepository;
 import com.ecommerce.repository.ProductRepository;
 import com.ecommerce.request.CreateProductRequest;
+import com.ecommerce.service.ProductService;
+import com.ecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -19,7 +21,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class ProductServiceImplementation implements ProductService{
+public class ProductServiceImplementation implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
@@ -129,6 +131,12 @@ public class ProductServiceImplementation implements ProductService{
     public List<Product> getAllProducts() {
         return productRepository.findAll();
 
+    }
+
+    @Override
+    public List<Product> searchProduct(String query) {
+        List<Product> products=productRepository.searchProduct(query);
+        return products;
     }
 
     @Override

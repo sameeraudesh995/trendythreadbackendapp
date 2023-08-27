@@ -1,16 +1,17 @@
-package com.ecommerce.service;
+package com.ecommerce.service.impl;
 
 import com.ecommerce.config.JwtTokenProvider;
 import com.ecommerce.exception.UserException;
 import com.ecommerce.model.User;
 import com.ecommerce.repository.UserRepository;
+import com.ecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class UserServiceImplementation implements UserService{
+public class UserServiceImplementation implements UserService {
 
     @Autowired
     private UserRepository userRepository;

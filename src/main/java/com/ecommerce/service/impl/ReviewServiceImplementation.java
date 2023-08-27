@@ -1,4 +1,4 @@
-package com.ecommerce.service;
+package com.ecommerce.service.impl;
 
 import com.ecommerce.exception.ProductException;
 import com.ecommerce.model.Product;
@@ -7,13 +7,15 @@ import com.ecommerce.model.User;
 import com.ecommerce.repository.ProductRepository;
 import com.ecommerce.repository.ReviewRepository;
 import com.ecommerce.request.ReviewRequest;
+import com.ecommerce.service.ProductService;
+import com.ecommerce.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 @Service
-public class ReviewServiceImplementation implements ReviewService{
+public class ReviewServiceImplementation implements ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
     @Autowired

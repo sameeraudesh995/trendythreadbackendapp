@@ -1,4 +1,4 @@
-package com.ecommerce.service;
+package com.ecommerce.service.impl;
 
 import com.ecommerce.exception.ProductException;
 import com.ecommerce.model.Product;
@@ -6,13 +6,15 @@ import com.ecommerce.model.Rating;
 import com.ecommerce.model.User;
 import com.ecommerce.repository.RatingRepository;
 import com.ecommerce.request.RatingRequest;
+import com.ecommerce.service.ProductService;
+import com.ecommerce.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 @Service
-public class RatingServiceImplementation implements RatingService{
+public class RatingServiceImplementation implements RatingService {
     @Autowired
     private RatingRepository ratingRepository;
     @Autowired

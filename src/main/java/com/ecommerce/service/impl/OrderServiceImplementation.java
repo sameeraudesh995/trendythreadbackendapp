@@ -1,17 +1,20 @@
-package com.ecommerce.service;
+package com.ecommerce.service.impl;
 
 import com.ecommerce.exception.OrderException;
 import com.ecommerce.model.Address;
 import com.ecommerce.model.Order;
 import com.ecommerce.model.User;
 import com.ecommerce.repository.CartRepository;
+import com.ecommerce.service.CartService;
+import com.ecommerce.service.OrderService;
+import com.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class OrderServiceImplementation implements OrderService{
+public class OrderServiceImplementation implements OrderService {
     @Autowired
     private CartRepository cartRepository;
     @Autowired
