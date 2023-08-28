@@ -24,7 +24,7 @@ public class AdminOrderController {
     }
 
     @PutMapping("/{orderId}/confirmed")
-    public ResponseEntity<Order> confirmeOrderHandeler(@PathVariable Long orderId, @RequestHeader("Authorizatio") String jwt) throws OrderException{
+    public ResponseEntity<Order> confirmeOrderHandeler(@PathVariable Long orderId, @RequestHeader("Authorization") String jwt) throws OrderException{
         Order order = orderService.confirmedOrder(orderId);
         return new ResponseEntity<Order>(order, HttpStatus.ACCEPTED);
     }

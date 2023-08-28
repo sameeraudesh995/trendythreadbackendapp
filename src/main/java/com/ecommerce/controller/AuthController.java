@@ -6,7 +6,7 @@ import com.ecommerce.model.User;
 import com.ecommerce.repository.UserRepository;
 import com.ecommerce.request.LoginRequest;
 import com.ecommerce.response.AuthResponse;
-import com.ecommerce.service.CustomerUserServiceImplementation;
+import com.ecommerce.service.impl.CustomerUserServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

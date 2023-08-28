@@ -58,12 +58,19 @@ public class Product {
     @Column(name = "num_ratings")
     private int numRatings;
 
-
     @ManyToOne()
     @JoinColumn(name="category_id")
     private Category category;
 
     private LocalDateTime createdAt;
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, category, color, description, discountPersent, discountedPrice, id, imageUrl,
+                numRatings, price, quantity, ratings, reviews, sizes, title);
+    }
 
 
     @Override

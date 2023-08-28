@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 @Getter
 @Setter
-@ToString
 public class CreateProductRequest {
 
     private String title;
@@ -23,7 +22,6 @@ public class CreateProductRequest {
     private String topLavelCategory;
     private String secondLavelCategory;
     private String thirdLavelCategory;
-
 
 
 }
