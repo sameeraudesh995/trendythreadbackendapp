@@ -21,11 +21,12 @@ public class AdminProductController {
 
 
     @PostMapping("/")
-    public ResponseEntity<Product> createProductHandler(@RequestBody CreateProductRequest req) throws ProductException{
+    public ResponseEntity<Product> createProductHandler(@org.springframework.web.bind.annotation.RequestBody CreateProductRequest req) throws ProductException{
 
         Product createdProduct = productService.createProduct(req);
 
-        return new ResponseEntity<Product>(createdProduct, HttpStatus.ACCEPTED);
+        return new ResponseEntity<Product>(createdProduct,HttpStatus.ACCEPTED);
+
     }
 
     @DeleteMapping("/{productId}/delete")
