@@ -8,8 +8,8 @@ import com.ecommerce.request.AddItemRequest;
 import com.ecommerce.response.ApiResponse;
 import com.ecommerce.service.CartService;
 import com.ecommerce.service.UserService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/cart")
 public class CartController {
 
+    @Autowired
     private CartService cartService;
+
+    @Autowired
     private UserService userService;
 
     @GetMapping("/")
@@ -30,7 +33,6 @@ public class CartController {
         return new ResponseEntity<Cart>(cart, HttpStatus.OK);
     }
     @PutMapping("/add")
-    //@Operation(description = "add item to cart")
     public ResponseEntity<ApiResponse> addItemToCart(@RequestBody AddItemRequest addItemRequest , @RequestHeader("Authorization") String jwt ) throws UserException, ProductException{
         User user = userService.findUserProfileByJwt(jwt);
         cartService.addCartItem(user.getId(),addItemRequest);
