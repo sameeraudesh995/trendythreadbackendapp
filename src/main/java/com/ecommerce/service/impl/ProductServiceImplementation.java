@@ -33,8 +33,8 @@ public class ProductServiceImplementation implements ProductService {
 
     @Override
     public Product createProduct(CreateProductRequest req) {
-        Category topLevel;
-        topLevel = categoryRepository.findByName(req.getTopLavelCategory());
+
+        Category topLevel=categoryRepository.findByName(req.getTopLavelCategory());
 
         if(topLevel==null) {
 
@@ -73,8 +73,8 @@ public class ProductServiceImplementation implements ProductService {
         product.setTitle(req.getTitle());
         product.setColor(req.getColor());
         product.setDescription(req.getDescription());
-        product.setDiscountedPrice(req.getDiscountPrice());
-        product.setDiscountPersent(req.getDiscountPresent());
+        product.setDiscountedPrice(req.getDiscountedPrice());
+        product.setDiscountPersent(req.getDiscountPersent());
         product.setImageUrl(req.getImageUrl());
         product.setBrand(req.getBrand());
         product.setPrice(req.getPrice());
@@ -82,6 +82,7 @@ public class ProductServiceImplementation implements ProductService {
         product.setQuantity(req.getQuantity());
         product.setCategory(thirdLevel);
         product.setCreatedAt(LocalDateTime.now());
+
 
         Product savedProduct= productRepository.save(product);
 

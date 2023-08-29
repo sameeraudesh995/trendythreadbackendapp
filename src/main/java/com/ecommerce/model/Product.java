@@ -17,7 +17,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="title")
+    @Column(name = "title")
     private String title;
 
     @Column(name = "description")
@@ -50,13 +50,14 @@ public class Product {
     private String imageUrl;
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Rating> ratings=new ArrayList<>();
+    private List<Rating>ratings=new ArrayList<>();
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Review>reviews=new ArrayList<>();
 
     @Column(name = "num_ratings")
     private int numRatings;
+
 
     @ManyToOne()
     @JoinColumn(name="category_id")

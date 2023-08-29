@@ -10,18 +10,27 @@ import java.util.Set;
 public class CreateProductRequest {
 
     private String title;
+
     private String description;
+
     private int price;
-    private int discountPrice;
-    private int discountPresent;
+
+    private int discountedPrice;
+
+    private int discountPersent;
+
     private int quantity;
+
     private String brand;
+
     private String color;
+
     private Set<Size> size=new HashSet<>();
+
     private String imageUrl;
+
     private String topLavelCategory;
     private String secondLavelCategory;
     private String thirdLavelCategory;
-
 
 }
