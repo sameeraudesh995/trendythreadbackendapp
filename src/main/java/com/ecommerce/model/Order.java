@@ -10,7 +10,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -42,7 +41,7 @@ public class Order {
 
     private Integer totalDiscountedPrice;
 
-    private Integer discount;
+    private Integer discounte;
 
     private String orderStatus;
 

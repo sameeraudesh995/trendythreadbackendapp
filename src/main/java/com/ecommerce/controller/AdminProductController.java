@@ -39,7 +39,7 @@ public class AdminProductController {
         return new ResponseEntity<ApiResponse>(res,HttpStatus.ACCEPTED);
     }
     @GetMapping("/all")
-    public ResponseEntity<List<Product>> findAllProduct(){
+    public ResponseEntity<List<Product>> findAllProduct() {
         List<Product> products = productService.getAllProducts();
         return new ResponseEntity<List<Product>>(products,HttpStatus.OK);
     }

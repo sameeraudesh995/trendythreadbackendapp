@@ -24,7 +24,7 @@ public class AdminOrderController {
     }
 
     @PutMapping("/{orderId}/confirmed")
-    public ResponseEntity<Order> confirmeOrderHandeler(@PathVariable Long orderId, @RequestHeader("Authorization") String jwt) throws OrderException{
+    public ResponseEntity<Order> confirmedOrderHandler(@PathVariable Long orderId, @RequestHeader("Authorization") String jwt) throws OrderException{
         Order order = orderService.confirmedOrder(orderId);
         return new ResponseEntity<Order>(order, HttpStatus.ACCEPTED);
     }
@@ -35,18 +35,18 @@ public class AdminOrderController {
         return new ResponseEntity<Order>(order,HttpStatus.ACCEPTED);
     }
     @PutMapping("/{orderId}/delivery")
-    public ResponseEntity<Order> deliveryOrderHandeller(@PathVariable Long orderId,@RequestHeader("Authorization") String jwt) throws OrderException{
+    public ResponseEntity<Order> deliveryOrderHandler(@PathVariable Long orderId,@RequestHeader("Authorization") String jwt) throws OrderException{
         Order order = orderService.deliveredOrder(orderId);
         return new ResponseEntity<Order>(order,HttpStatus.ACCEPTED);
     }
     @PutMapping("/{orderId}/cancel")
-    public ResponseEntity<Order> canceleOrderHandeler(@PathVariable Long orderId, @RequestHeader("Authorization") String jwt ) throws OrderException{
+    public ResponseEntity<Order> canceledOrderHandler(@PathVariable Long orderId, @RequestHeader("Authorization") String jwt ) throws OrderException{
         Order order=orderService.cancledOrder(orderId);
         return new ResponseEntity<Order>(order, HttpStatus.ACCEPTED);
 
     }
     @DeleteMapping("/{orderId}/delete")
-    public ResponseEntity<ApiResponse> deleteOrderHandeler(@PathVariable Long orderId, @RequestHeader("Authorization") String jwt) throws OrderException{
+    public ResponseEntity<ApiResponse> deleteOrderHandler(@PathVariable Long orderId, @RequestHeader("Authorization") String jwt) throws OrderException{
         orderService.deleteOrder(orderId);
        ApiResponse apiResponse= new ApiResponse("Order Delete Successfully", true);
        return new ResponseEntity<>(apiResponse,HttpStatus.ACCEPTED);
